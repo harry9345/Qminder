@@ -46,8 +46,8 @@ class App extends Component {
             i < response.data.response.groups[0].items.length;
             i++
           ) {
-            let venueId = response.data.response.groups[0].items[i].venue.id;
-            this.getPhoto(venueId);
+            let VENUE_ID = response.data.response.groups[0].items[i].venue.id;
+            this.getPhoto(VENUE_ID);
           }
         });
     } catch (error) {
@@ -57,14 +57,14 @@ class App extends Component {
   };
 
   // FourSQ Photo
-  getPhoto = async (venueId) => {
+  getPhoto = async (VENUE_ID) => {
     try {
       await axios
-        .get(`https://api.foursquare.com/v2/venues/${venueId}/photos?`, {
+        .get(`https://api.foursquare.com/v2/venues/${VENUE_ID}/photos?`, {
           params: {
             client_id: "T0XQ22NTXUJVU0IPKNW4L34ROBGEA2NHX4ZUV5VMOLBEXC42",
             client_secret: "UVWYSTTJV1LTPQNBKRMDWMJM3NAN1Z4HGJBBSGAFWJM3BO2F",
-            group: "venue",
+
             limit: "200",
             v: "20211301",
           },
@@ -149,7 +149,7 @@ class App extends Component {
       <Container>
         <Row>
           <Col sm={8} id="map" className={classes.Map}></Col>
-          <Photos images={this.state.photosUrl} key={this.state.venues.name} />
+          <Photos images={this.state.photosUrl} key={this.state.venues.id} />
         </Row>
       </Container>
     );

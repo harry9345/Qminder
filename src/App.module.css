@@ -34,4 +34,13 @@ body {
     height: 45vh;
     width: 75%;
   }
+  .Photo {
+    background-color: black;
+    display: block;
+    float: right;
+    margin: 10%;
+    padding: 1%;
+    width: 100px;
+    height: 115px;
+  }
 }
