@@ -16,9 +16,7 @@ class App extends Component {
   }
   // google map api
   renderMap = () => {
-    loadScript(
-      "https://maps.googleapis.com/maps/api/js?key=AIzaSyB97teau2ZKw8JZu_zll6Sgtm6WqaQJPk4&callback=initMap&libraries=&v=weekly"
-    );
+    loadScript("Api key");
     window.initMap = this.initMap;
   };
   // FourSQ venues
@@ -27,8 +25,8 @@ class App extends Component {
       await axios
         .get("https://api.foursquare.com/v2/venues/explore?", {
           params: {
-            client_id: "T0XQ22NTXUJVU0IPKNW4L34ROBGEA2NHX4ZUV5VMOLBEXC42",
-            client_secret: "UVWYSTTJV1LTPQNBKRMDWMJM3NAN1Z4HGJBBSGAFWJM3BO2F",
+            client_id: "client ID",
+            client_secret: "client sercet",
             query: "Burger joint",
             near: "Tartu",
             v: "20211301",
@@ -62,9 +60,8 @@ class App extends Component {
       await axios
         .get(`https://api.foursquare.com/v2/venues/${VENUE_ID}/photos?`, {
           params: {
-            client_id: "T0XQ22NTXUJVU0IPKNW4L34ROBGEA2NHX4ZUV5VMOLBEXC42",
-            client_secret: "UVWYSTTJV1LTPQNBKRMDWMJM3NAN1Z4HGJBBSGAFWJM3BO2F",
-
+            client_id: "client ID",
+            client_secret: "client sercet",
             limit: "200",
             v: "20211301",
           },
@@ -140,7 +137,6 @@ class App extends Component {
         // open an info marker
         infowindow.open(map, marker);
       });
-
       return marker;
     });
   };
