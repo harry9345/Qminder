@@ -16,7 +16,9 @@ class App extends Component {
   }
   // google map api
   renderMap = () => {
-    loadScript("Api key");
+    loadScript(
+      "https://maps.googleapis.com/maps/api/js?key=AIzaSyB97teau2ZKw8JZu_zll6Sgtm6WqaQJPk4&callback=initMap&libraries=&v=weekly"
+    );
     window.initMap = this.initMap;
   };
   // FourSQ venues
@@ -25,8 +27,8 @@ class App extends Component {
       await axios
         .get("https://api.foursquare.com/v2/venues/explore?", {
           params: {
-            client_id: "client ID",
-            client_secret: "client sercet",
+            client_id: "MIRBCVH2JL55CND01MDQCVTUKVI4SZ5YCKAMKRXLL5MJRIMM",
+            client_secret: "GAGKGT3255ORMXVYMXVNALIP1T4ZSBSG22OEKEZX2OO3HNXK",
             query: "Burger joint",
             near: "Tartu",
             v: "20211301",
@@ -60,8 +62,8 @@ class App extends Component {
       await axios
         .get(`https://api.foursquare.com/v2/venues/${VENUE_ID}/photos?`, {
           params: {
-            client_id: "client ID",
-            client_secret: "client sercet",
+            client_id: "MIRBCVH2JL55CND01MDQCVTUKVI4SZ5YCKAMKRXLL5MJRIMM",
+            client_secret: "GAGKGT3255ORMXVYMXVNALIP1T4ZSBSG22OEKEZX2OO3HNXK",
             limit: "200",
             v: "20211301",
           },
@@ -100,6 +102,7 @@ class App extends Component {
       center: { lat: 58.378, lng: 26.7321 },
       radius: 1000,
     });
+    console.log(tartuBusStop);
 
     // bus stop pin
     const image =
@@ -110,7 +113,7 @@ class App extends Component {
       title: "Tartu Bus Stop",
       icon: image,
     });
-
+    console.log(busStop);
     // create an info window
     const infowindow = new window.google.maps.InfoWindow();
 
